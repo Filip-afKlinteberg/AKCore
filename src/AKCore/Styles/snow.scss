@@ -296,6 +296,7 @@
   animation: snow 5s linear infinite;
 }
 #snow {
+  pointer-events: none;
   background: none;
   background-image: url("./Assets/flake1.png"), url("./Assets/flake2.png"),
     url("./Assets/flake3.png");
