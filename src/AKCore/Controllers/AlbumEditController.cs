@@ -19,11 +19,11 @@ namespace AKCore.Controllers
     public class AlbumEditController : Controller
     {
         private static readonly string[] MusicExtensions = {"mp3"};
-        private readonly IHostingEnvironment _hostingEnv;
+        private readonly IWebHostEnvironment _hostingEnv;
         private readonly AKContext _db;
         private readonly UserManager<AkUser> _userManager;
 
-        public AlbumEditController(IHostingEnvironment env, AKContext db, UserManager<AkUser> userManager)
+        public AlbumEditController(IWebHostEnvironment env, AKContext db, UserManager<AkUser> userManager)
         {
             _hostingEnv = env;
             _db = db;
@@ -153,6 +153,31 @@ namespace AKCore.Controllers
                 Modified = DateTime.Now,
                 ModifiedBy = user,
                 Comment = "Album med id " + id + " uppdaterar namn"
+            });
+
+            _db.SaveChanges();
+
+            return Json(new {success = true});
+        }
+
+        [HttpPost]
+        [Route("ChangeCategory")]
+        public async Task<ActionResult> ChangeCategory(string id, string category)
+        {
+            if (!int.TryParse(id, out var aId) || string.IsNullOrWhiteSpace(category))
+                return Json(new { success = false, message = "Misslyckades med att ändra albumkategori" });
+            var album = _db.Albums.FirstOrDefault(x => x.Id == aId);
+            if (album == null)
+                return Json(new {success = false, message = "Misslyckades med att ändra albumnamn"});
+            album.Category = category;
+
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            _db.Log.Add(new LogItem()
+            {
+                Type = AkLogTypes.Album,
+                Modified = DateTime.Now,
+                ModifiedBy = user,
+                Comment = "Album med id " + id + " uppdaterar kategori"
             });
 
             _db.SaveChanges();

@@ -47,4 +47,7 @@
 .modal-wrapper {
     transition: all .3s ease;
 }
+.modal-dialog {
+    max-height: calc(100vh - 30px);
+}
 </style>

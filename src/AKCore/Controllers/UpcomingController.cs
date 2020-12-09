@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace AKCore.Controllers
 {
@@ -52,7 +52,7 @@ namespace AKCore.Controllers
             {
                 Years = _db.Events
                     .Include(x => x.SignUps)
-                    .Where(x => loggedIn || (x.Type == "Spelning"))
+                    .Where(x => loggedIn || (x.Type == "Spelning") || (x.Type == "Evenemang"))
                     .Where(x => loggedIn || (!x.Secret))
                     .Where(x => x.Day >= DateTime.UtcNow.Date)
                     .OrderBy(x => x.Day).ThenBy(x => x.StartsTime)
@@ -209,7 +209,7 @@ namespace AKCore.Controllers
 
         [Route("Event/{id:int}")]
         [Authorize(Roles = "Medlem")]
-        public ActionResult Event(SignUpModel model, string id)
+        public ActionResult Event(string id)
         {
             ViewBag.Title = "Anmälan";
             if (!int.TryParse(id, out var eId))

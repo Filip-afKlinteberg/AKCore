@@ -98,6 +98,8 @@ namespace AKCore.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Category");
+
                     b.Property<DateTime>("Created");
 
                     b.Property<string>("Image");
@@ -105,6 +107,8 @@ namespace AKCore.Migrations
                     b.Property<string>("Name");
 
                     b.Property<DateTime>("Released");
+
+                    b.Property<string>("Year");
 
                     b.HasKey("Id");
 

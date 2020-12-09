@@ -125,6 +125,8 @@ namespace AKCore.DataModel
         public int Id { get; set; }
         public string Name { get; set; }
         public string Image { get; set; }
+        public string Year { get; set; }
+        public string Category { get; set; }
         public DateTime Created { get; set; }
         public DateTime Released { get; set; }
         public List<Track> Tracks { get; set; }
@@ -144,7 +146,7 @@ namespace AKCore.DataModel
         {
             if (!string.IsNullOrWhiteSpace(Name)) return Name;
             var parts = FileName.Split('.');
-            return parts[parts.Length - 2].Replace('_', ' ');
+            return parts[^2].Replace('_', ' ');
         }
     }
 

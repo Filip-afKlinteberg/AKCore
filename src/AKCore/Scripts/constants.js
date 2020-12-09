@@ -4,6 +4,7 @@
     "Kamrerskamerer",
     "Balettkamerer",
     "Busskamerer",
+    "Instrumentkamerer",
     "Kamerakamerer",
     "Myskamerer",
     "Musikkamerer",
@@ -41,7 +42,7 @@ const INSTRUMENTS = [
     "Banjo",
     "Barytonsax",
     "Euphonium",
-    "Flute",
+    "Flöjt",
     "Horn",
     "Klarinett",
     "Oboe",
@@ -58,11 +59,11 @@ const MONTHS = ["Januari", "Februari", "Mars", "April", "Maj", "Juni",
 const DAYS = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag",
     "Söndag"];
 
-const EVENTTYPES = ["Spelning", "Rep", "Kårhusrep", "Fikarep", "Fest"];
+const EVENTTYPES = ["Spelning", "Rep", "Kårhusrep", "Athenrep" ,"Fikarep", "Fest", "Evenemang"];
 
 const SPELTYPER = ["Stå", "Gå", "Stå och gå"];
 
-const SEKTIONER = ["Balett", "Flöjt", "Klarinett", "Komp", "Sax", "Trombon", "Trumpet"];
+const SEKTIONER = ["Balett", "Flöjt", "Grovbrass", "Klarinett", "Komp", "Sax", "Trumpet"];
 
 const IMAGETYPES = [
     "Albumomslag",
@@ -70,8 +71,14 @@ const IMAGETYPES = [
     "Balett",
     "Dokument",
     "Ikoner",
+    "Fotoalbumomslag",
     "Startsidebilder"];
 
+const ALBUMCATEGORIES = [
+    "Jubileum",
+    "Balettjubileum",
+    "Skivor",
+    "Övrigt"];
 
 export default {
     POSTS,
@@ -84,5 +91,6 @@ export default {
     EVENTTYPES,
     SPELTYPER,
     SEKTIONER,
-    IMAGETYPES
+    IMAGETYPES,
+    ALBUMCATEGORIES
 }

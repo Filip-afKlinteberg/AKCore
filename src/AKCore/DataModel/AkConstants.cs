@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace AKCore.DataModel
 {
@@ -34,7 +32,7 @@ namespace AKCore.DataModel
         public const string Trombon = "Trombon";
         public const string Trumpet = "Trumpet";
         public const string Tuba = "Tuba";
-        
+
         public static readonly IList<string> Instrument = new List<string>()
         {
             Altsax,
@@ -60,7 +58,7 @@ namespace AKCore.DataModel
         public const string Komp = "Komp";
         public const string Klarinett = "Klarinett";
         public const string Flute = "Flöjt";
-        public const string Trombon = "Trombon";
+        public const string Trombon = "Grovbrass";
         public const string Trumpet = "Trumpet";
         public static readonly IList<string> Sektioner = new List<string>()
         {
@@ -92,6 +90,7 @@ namespace AKCore.DataModel
         public const string KK = "Kamrerskamerer";
         public const string Balettkamerer = "Balettkamerer";
         public const string Busskamerer = "Busskamerer";
+        public const string Instrumentkamerer = "Instrumentkamerer";
         public const string Kamerakamerer = "Kamerakamerer";
         public const string Myskamerer = "Myskamerer";
         public const string Musikkamerer = "Musikkamerer";
@@ -112,6 +111,7 @@ namespace AKCore.DataModel
             KK,
             Balettkamerer,
             Busskamerer,
+            Instrumentkamerer,
             Kamerakamerer,
             Myskamerer,
             Musikkamerer,
@@ -133,16 +133,20 @@ namespace AKCore.DataModel
         public const string Spelning = "Spelning";
         public const string Rep = "Rep";
         public const string KarRep = "Kårhusrep";
+        public const string AthenRep = "Athenrep";
         public const string FikaRep = "Fikarep";
         public const string Fest = "Fest";
+        public const string Evenemang = "Evenemang";
 
         public static readonly IList<string> Types = new List<string>()
         {
             Spelning,
             Rep,
             KarRep,
+            AthenRep,
             FikaRep,
-            Fest
+            Fest,
+            Evenemang
         };
     }
 
@@ -188,6 +192,8 @@ namespace AKCore.DataModel
         public const string Dokument = "Dokument";
         public const string Ikoner = "Ikoner";
         public const string Startsidebilder = "Startsidebilder";
+        public const string Fotoalbumomslag = "Fotoalbumomslag";
+
 
         public static readonly IList<string> MediaTags = new List<string>()
         {
@@ -196,43 +202,11 @@ namespace AKCore.DataModel
             Balett,
             Dokument,
             Ikoner,
-            Startsidebilder
+            Startsidebilder,
+            Fotoalbumomslag
         };
     }
 
-    public class AkNationer
-    {
-        public const string Ostgota = "Östgöta nation";
-        public const string Vastgota = "Västgöta nation";
-        public const string Lund = "Lunds Nation";
-        public const string Malmo = "Malmö nation";
-        public const string Helsingkrona = "Helsingkrona nation";
-        public const string Sydskanska = "Sydskånska nationen";
-        public const string Kristianstad = "Kristianstads nation";
-        public const string Blekingska = "Blekingska nationen";
-        public const string Goteborg = "Göteborgs nation";
-        public const string Halland = "Hallands nation";
-        public const string Kalmar = "Kalmar nation";
-        public const string Wermland = "Wermlands nation";
-        public const string NoNation = "Ingen nation";
-
-        public static readonly IList<string> Nationer = new List<string>()
-        {
-            Ostgota,
-            Vastgota,
-            Lund,
-            Malmo,
-            Helsingkrona,
-            Sydskanska,
-            Kristianstad,
-            Blekingska,
-            Goteborg,
-            Halland,
-            Kalmar,
-            Wermland,
-            NoNation
-        };
-    }
     public class AkLogTypes
     {
         public const string Page = "Page";
@@ -249,6 +223,20 @@ namespace AKCore.DataModel
             Files,
             Events,
             Menus
+        };
+    }
+    public class AkAlbumCategories
+    {
+        public const string Jubileum = "Jubileum";
+        public const string BalettJubileum = "Balettjubileum";
+        public const string Skivor = "Skivor";
+        public const string Övrigt = "Övrigt";
+        public static readonly IList<string> Categories = new List<string>()
+        {
+            Jubileum,
+            BalettJubileum,
+            Skivor,
+            Övrigt
         };
     }
 }

@@ -6,6 +6,8 @@ import UpcomingApp from "./VueComponents/Upcoming/UpcomingApp";
 import AdminEventApp from "./VueComponents/AdminEvent/AdminEventApp";
 import AlbumEditApp from "./VueComponents/AlbumEdit/AlbumEditApp";
 import MenuEditApp from "./VueComponents/MenuEdit/MenuEditApp";
+import MediaApp from "./VueComponents/Media/MediaApp";
+import MusicApp from "./VueComponents/MusicPlayer/MusicApp";
 
 $(".videos-app").each(function () {
     const widgetId = $(this).data("id");
@@ -72,3 +74,20 @@ if ($("#menu-edit-app").length > 0) {
         components: { MenuEditApp }
     });
 }
+
+if ($("#media-app").length > 0) {
+    const mediaApp = new Vue({
+        el: `#media-app`,
+        template: "<media-app />",
+        components: { MediaApp }
+    });
+}
+
+if ($("#music-app").length > 0) {
+    const musicPlayer = new Vue({
+        el: `#music-app`,
+        template: "<music-app />",
+        components: { MusicApp }
+    });
+}
+
